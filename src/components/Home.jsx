@@ -7,6 +7,7 @@ export default function Home() {
   const [accounts, setAccounts] = React.useState([])
   const [clickedAccount, setClickedAccount] = React.useState()
   const [accountSpendings, setAccountSpendings] = React.useState({})
+	
 
   React.useEffect(() => {
     async function loadAccounts() {
@@ -26,17 +27,6 @@ export default function Home() {
     }
   }, [accounts])
 
-  const accountElements = accounts.map((account) => (
-    <li
-      className={`account ${clickedAccount == account.id ? "selected" : ""}`}
-      key={account.id}
-      onClick={() => displaySpendings(account.id)}
-    >
-      <p>{account.title} </p>
-      <p>$ {Number(account.balance).toLocaleString("en-US")}</p>
-    </li>
-  ))
-
   const displaySpendings = (accountId) => {
     setClickedAccount(accountId)
     const account = accounts.filter((account) => account.id == accountId)[0]
@@ -50,42 +40,18 @@ export default function Home() {
     <main>
       <section>
         <div className="buttons">
-					<button className="action-btn">Pay</button>
+          <button className="action-btn">Pay</button>
           <button className="action-btn">Transfer</button>
         </div>
       </section>
       <section className="section-accounts">
         <div className="container">
-          <div className="account-list">
-            <h2>Accounts</h2>
-            <ul>{accountElements}</ul>
-          </div>
-          <div className="div-spendings">
-            <h2>Spendings</h2>
-            <div className="spending-list">
-              {accountSpendings.spendings?.length == 0 ? (
-                <div>
-                  <h3>You dont have any spendings!</h3>
-                </div>
-              ) : (
-                accountSpendings.spendings?.map((spending, index) => (
-                  <div className="progress-container" key={index}>
-                    <div
-                      className="progress-bar"
-                      style={{
-                        width: `${
-                          (spending.spent / accountSpendings.balance) * 100 + 60
-                        }%`,
-                      }}
-                    >
-                      <p>{spending.category}</p>
-                      <p>$ {Number(spending.spent).toLocaleString()}</p>
-                    </div>
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
+          <Accounts
+            accounts={accounts}
+            clickedAccount={clickedAccount}
+            displaySpendings={displaySpendings}
+          />
+          <Spendings accountSpendings={accountSpendings} />
         </div>
       </section>
     </main>

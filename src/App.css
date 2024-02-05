@@ -17,6 +17,7 @@ nav {
 
 .nav-list {
   list-style-type: none;
+  padding-left: 0;
 }
 
 .nav-list li {
@@ -101,7 +102,7 @@ HOME COMPONENT
 .progress-container {
   margin-bottom: 0.8em;
   border-radius: 10px;
-  /* padding-left: 0; */
+  padding-left: 0;
 }
 
 .progress-bar {
