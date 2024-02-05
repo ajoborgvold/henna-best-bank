@@ -1,13 +1,12 @@
-
 /** Header Styles */
 
 header {
-  padding:1.5em 0;
+  padding: 1.5em 0;
 }
 
 .logo {
   height: 70px;
-  display:block;
+  display: block;
   margin: 2em auto;
 }
 
@@ -38,8 +37,11 @@ a:hover {
   font-weight: bold;
 }
 
-/** Home */
+/*========== 
+HOME COMPONENT
+==========*/
 
+/* Buttons */
 .buttons {
   display: flex;
   justify-content: center;
@@ -49,47 +51,15 @@ a:hover {
 .action-btn {
   width: 250px;
   padding: 0.8em;
+  background-color: #fffffe;
   color: #00214d;
   font-size: 1.2rem;
   font-weight: bold;
-  margin:1em;
+  margin: 1em;
+  border: 6px solid #00ebc7;
   border-radius: 50px;
-  cursor: pointer
-}
-
-.action-btn, .account {
-  border:6px solid #00ebc7 ;
-  background-color: #fffffe;
-}
-.action-btn {
+  cursor: pointer;
   transition: width 1s ease;
-}
-
-.section-accounts {
-  display:flex;
-  justify-content: space-evenly;
-}
-
-.selected {
-  background-color:#00ebc7 ;
-}
-
-.account {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1.2em;
-  border-radius: 10px;
-  width: 350px;
-  padding: 0.5em 1.2em;
-}
-
-.account-list ul {
-  padding-left:0;
-}
-
-.account p {
-  font-size: 1.2rem;
-  font-weight: bold;
 }
 
 .action-btn:hover {
@@ -97,22 +67,55 @@ a:hover {
   width: 280px;
 }
 
+/* Account section */
+.section-accounts {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.account {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fffffe;
+  margin-bottom: 1.2em;
+  border-radius: 10px;
+  width: 350px;
+  padding: 0.5em 1.2em;
+  border: 6px solid #00ebc7;
+}
+
+.selected {
+  background-color: #00ebc7;
+}
+
+.account-list ul {
+  padding-left: 0;
+}
+
+.account p {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Spendings section */
 .progress-container {
   margin-bottom: 0.8em;
   border-radius: 10px;
+  /* padding-left: 0; */
 }
 
 .progress-bar {
-  display:flex;
+  display: flex;
   justify-content: space-between;
   padding: 0 0.6em;
-  background-color:#00ebc7 ;
+  background-color: #00ebc7;
   border-radius: 10px;
   font-weight: bold;
 }
 .progress-bar p {
   margin: 0.6em 0;
 }
+
 /** Footer  */
 
 footer {
@@ -120,7 +123,7 @@ footer {
   color: #fffffe;
   display: flex;
   margin-top: auto;
-  height:80px;
+  height: 80px;
   justify-content: center;
   align-items: center;
   font-weight: 600;
@@ -129,7 +132,7 @@ footer {
 /** Media Query */
 @media (min-width: 700px) {
   .nav-list {
-    display:flex;
+    display: flex;
     justify-content: space-evenly;
     align-items: center;
   }
@@ -139,7 +142,4 @@ footer {
     grid-template-columns: 1fr 1fr;
     gap: 3em;
   }
-
 }
-
-
